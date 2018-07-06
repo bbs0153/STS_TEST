@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-response.sendRedirect("listBoard.do");
-%>
-
+<a href="listBoard.do">게시판목록</a>
+<a href="login.do">로그인</a>
 </body>
 </html>

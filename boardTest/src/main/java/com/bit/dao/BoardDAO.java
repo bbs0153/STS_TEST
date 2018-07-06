@@ -1,7 +1,8 @@
+
+
 package com.bit.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,3 +38,4 @@ public class BoardDAO {
 		return BoardManager.updateHit(no);
 	}
 }
+

@@ -32,6 +32,7 @@
 	
 	
 	<context:component-scan base-package="com.bit.controller" />
+	<context:component-scan base-package="com.bit.member" />
 	<context:component-scan base-package="com.bit.dao" />
 	
 	
