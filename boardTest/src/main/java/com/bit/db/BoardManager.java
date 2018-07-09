@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.bit.vo.BoardVO;
+import com.bit.vo.MemberVO;
 
 public class BoardManager {
 
@@ -32,12 +33,12 @@ public class BoardManager {
 
 	}
 
-	public static List<BoardVO> listAll() {
+	public static List<BoardVO> listAll(Map map) {
 
 		List<BoardVO> list = null;
 
 		SqlSession session = factory.openSession();
-		list = session.selectList("board.selectAll");
+		list = session.selectList("board.selectAll",map);
 		session.close();
 		return list;
 
@@ -142,5 +143,18 @@ public class BoardManager {
 		re = session.update("board.updateHit", map);
 		session.close();
 		return re;
+	}
+	
+	public static List<BoardVO> myList(String id){
+		
+		List<BoardVO> list = null;
+		
+		Map map = new HashMap();
+		SqlSession session = factory.openSession();
+		map.put("id", id);
+		list = session.selectList("board.myList",map);
+		session.close();
+		return list;
+		
 	}
 }

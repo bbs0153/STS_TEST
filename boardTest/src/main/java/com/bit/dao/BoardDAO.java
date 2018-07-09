@@ -3,6 +3,7 @@
 package com.bit.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,8 +15,8 @@ import com.bit.vo.BoardVO;
 @Repository
 public class BoardDAO {
 
-	public List<BoardVO> listAll() {
-		return BoardManager.listAll();
+	public List<BoardVO> listAll(Map map) {
+		return BoardManager.listAll(map);
 	}
 
 	public int insert(BoardVO b, HttpServletRequest request) {
@@ -37,5 +38,10 @@ public class BoardDAO {
 	public int updateHit(int no) {
 		return BoardManager.updateHit(no);
 	}
+	
+	public List<BoardVO> myList(String id){
+		return BoardManager.myList(id);
+	}
+
 }
 

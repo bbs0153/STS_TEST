@@ -4,7 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<select id="selectAll" resultType="boardVo">
-		select * from board order by b_ref desc, b_step
+		select * from board
+		<if test="keyword != null and keyword !=''">
+			where title=#{keyword}
+		</if>
+		order by b_ref desc, b_step
 	</select>
 
 	<insert id="insert">
@@ -37,6 +41,13 @@
 	</update>
 
 	<update id="updateStep">
-		UPDATE board SET b_step=b_step+1 WHERE b_ref=#{b_ref} AND b_step>#{b_step}
+		UPDATE board SET b_step=b_step+1 WHERE b_ref=#{b_ref}
+		AND b_step>#{b_step}
 	</update>
+
+	<select id="myList" resultType="boardVo">
+		select * from board where
+		writer=#{id}
+	</select>
+
 </mapper>

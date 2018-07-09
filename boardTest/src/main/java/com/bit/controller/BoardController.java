@@ -24,10 +24,19 @@ public class BoardController {
 	}
 
 	@RequestMapping("/listBoard.do")
-	public ModelAndView listAll() {
-
+	public ModelAndView listAll(String id, String keyword) {
+		
+		Map map = new HashMap();
+		map.put("id", id);
+		map.put("keyword", keyword);
+		
 		ModelAndView mav = new ModelAndView("listBoard");
-		mav.addObject("list", dao.listAll());
+		if(id == null) {
+		mav.addObject("list", dao.listAll(map));
+		}else {
+			mav.addObject("list",dao.myList(id));
+		}
+		
 		return mav;
 	}
 

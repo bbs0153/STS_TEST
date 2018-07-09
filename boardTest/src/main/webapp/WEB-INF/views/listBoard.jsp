@@ -14,6 +14,17 @@
 	<br>
 	<h2>게시물 목록</h2>
 	<hr>
+	<c:if test="${not empty id}">
+	<a href="insertBoard.do">게시물등록</a>
+	<a href="listBoard.do?id=${id}">내글보기</a>
+	</c:if>
+	
+	<form action="listBoard.do" method="post">
+		제목 : <input type="text" name="keyword">
+		<input type="submit" value="검색">
+	</form>
+	
+	
 	<table>
 		<tr>
 			<td>글번호</td>
@@ -38,7 +49,5 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="insertBoard.do">게시물등록</a>
-
 </body>
 </html>

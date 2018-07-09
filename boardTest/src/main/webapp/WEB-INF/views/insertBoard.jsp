@@ -12,7 +12,7 @@
 	<form action="insertBoard.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="no" value="${no}">
 		   글 제목 :<input type="text" name="title" value="${ptitle}"><br>
-		   작성자 :<input type="text" name="writer"><br>
+		   작성자 :<input type="text" name="writer" value="${id}"><br>
 		   암호:<input type="password" name="pwd"><br>
 		   글 내용 :<br>
 		   <textarea rows="10" cols="60" name="content"></textarea>

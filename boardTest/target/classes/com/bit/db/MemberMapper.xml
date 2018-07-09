@@ -7,4 +7,5 @@
 		select * from member where id=#{id} and pwd=#{pwd}
 	</select>
 	
+	
 </mapper>
